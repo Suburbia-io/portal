@@ -157,6 +157,16 @@ class User extends BaseUser
     }
 
     /**
+     * @return array
+     */
+    public function getS3Credentials() :array {
+        return [
+            'key' => $this->attributes['s3_key'],
+            'secret' => $this->attributes['s3_secret'],
+        ];
+    }
+
+    /**
      * Check if this user has access via S3 set up
      * @return bool
      */

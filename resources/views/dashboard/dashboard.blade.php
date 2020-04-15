@@ -28,8 +28,8 @@
                     </div>
                 @else
                     <div class="flex-shrink-0">
-                        <div class="flex items-center justify-center h-12 w-12 p-6 rounded-md bg-green-500 text-white">
-                            <i class="fas fa-check mx-auto w-6 text-xl"></i>
+                        <div class="flex items-center justify-center h-12 w-12 p-6 rounded-md bg-blue-500 text-white">
+                            <i class="fas fa-exclamation mx-auto w-6 text-xl"></i>
                         </div>
                     </div>
                     <div class="ml-4">
@@ -63,8 +63,8 @@
                     </div>
                 @else
                     <div class="flex-shrink-0">
-                        <div class="flex items-center justify-center h-12 w-12 p-6 rounded-md bg-green-500 text-white">
-                            <i class="fas fa-check mx-auto w-6 text-xl"></i>
+                        <div class="flex items-center justify-center h-12 w-12 p-6 rounded-md bg-blue-500 text-white">
+                            <i class="fas fa-exclamation mx-auto w-6 text-xl"></i>
                         </div>
                     </div>
                     <div class="ml-4">

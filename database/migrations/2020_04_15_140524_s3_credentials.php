@@ -14,7 +14,7 @@ class S3Credentials extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('s3_key')->nullable()->default(null);
+            $table->string('s3_key')->unique()->nullable()->default(null);
             $table->string('s3_secret')->nullable()->default(null);
         });
     }
