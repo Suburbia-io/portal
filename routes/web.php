@@ -16,7 +16,7 @@ Route::get('/', function() {
 // Authentication routes, sends out the auth email with login link.
 Route::middleware(['guest',])->group(function () {
     Route::get('/auth', [AuthController::class, 'showAuthForm'])->name('auth');
-    Route::post('/auth', [AuthController::class, 'submitAuthForm']);
+    Route::post('/auth', [AuthController::class, 'submitAuthForm'])->middleware('throttle:5,2');
 });
 
 // Signed Route, performs the actual login by clicking on an email link.
