@@ -21,6 +21,9 @@
                             Name
                         </th>
                         <th class="px-6 py-3 border-b border-gray-300 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            Datasets
+                        </th>
+                        <th class="px-6 py-3 border-b border-gray-300 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                             Role
                         </th>
                         <th class="px-6 py-3 border-b border-gray-300 bg-gray-50"></th>
@@ -41,6 +44,9 @@
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                            <div class="text-sm leading-5 text-gray-800">{{ implode(', ', $user->datasets()->pluck('name')->toArray()) }}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                             @if ($user->isAdmin())
                                 <div class="text-sm leading-5 text-gray-800">Admin</div>
                             @else
@@ -48,7 +54,7 @@
                             @endif
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                            <a href="#" class="rounded-md border border-gray-300 px-4 py-2 bg-white leading-6 font-medium text-gray-700 shadow-sm">Edit</a>
                         </td>
                     </tr>
                     @endforeach
