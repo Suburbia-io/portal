@@ -1,7 +1,7 @@
 @extends('dashboard._base')
 
 @section('title')
-    S3 Data Access
+    <h1 class="text-3xl">S3 Data Access</h1>
 @endsection
 
 @section('content')

@@ -29,7 +29,7 @@ class AuthController extends BaseController
         $user = User::where('email', '=', $request->get('email'))->first();
         if (empty($user)) {
             return redirect()->back()->with([
-                'info' => 'A login link has been sent to your email address.',
+                'info' => 'A login link has been sent to your email address if it\'s known to us.',
             ]);
         }
 
@@ -37,7 +37,7 @@ class AuthController extends BaseController
         $user->notifyNow(new AuthLink());
 
         return redirect()->back()->with([
-            'info' => 'A login link has been sent to your email address.',
+            'info' => 'A login link has been sent to your email address if it\'s known to us.',
         ]);
     }
 
@@ -59,12 +59,20 @@ class AuthController extends BaseController
 
         // reset the login nonce so the link can't be used another time
         $user->setLoginNonce(null);
+        $user->touchLastLogin();
         $user->save();
 
         // log the user in
         auth()->loginUsingId($user->getAuthIdentifier());
 
         return redirect()->route('dashboard');
+    }
+
+    public function logout(Request $request) {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('auth');
     }
 
     public function showTwoFactorForm() {

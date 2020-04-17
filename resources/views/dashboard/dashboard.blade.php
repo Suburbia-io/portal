@@ -1,7 +1,8 @@
 @extends('dashboard._base')
 
 @section('title')
-    Dashboard
+    <h1 class="text-3xl">Dashboard</h1>
+    <div class="text-gray-500 font-normal">Welcome back, {{ $userName }}</div>
 @endsection
 
 @section('content')

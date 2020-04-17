@@ -16,7 +16,7 @@ class User extends BaseUser
     use Notifiable;
 
     protected $fillable = ['email', 'name', 'password', 'is_admin', 'otp_secret', 'last_login_at', 'login_nonce', 's3_key', 's3_secret'];
-    protected $casts = ['last_login_at' => 'datetime'];
+    protected $casts = ['last_login_at' => 'datetime', 'is_admin' => 'bool'];
 
     /**
      * The datasets this user has access to.
@@ -63,20 +63,18 @@ class User extends BaseUser
 
     /**
      * Generate a new OTP secret for this user
+     * @param $secret
      * @return string
-     * @throws TwoFactorAuthException
      */
-    public function generateOtpSecret() :string {
-        $secret = TwoFactorOtp::generateOtpSecret();
+    public function setOtpSecret($secret) {
         $this->attributes['otp_secret'] = $secret;
-        return $secret;
     }
 
     /**
      * get last login datetime of this user
      * @return Carbon
      */
-    public function getLastLogin() :Carbon {
+    public function getLastLogin() :?Carbon {
         return $this->attributes['last_login_at'];
     }
 

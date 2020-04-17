@@ -13,6 +13,7 @@ class DashboardController extends BaseController
         return view('dashboard.dashboard', [
             'hasS3' => $user->hasS3setup(),
             'hasSftp' => $user->hasSftpSetup(),
+            'userName' => $user->getName(),
         ]);
     }
 
