@@ -7,8 +7,8 @@
 @section('content')
 
     <div class="pb-4 mb-4">
-        <a class="text-black mb-1 font-bold mr-4 border-b-2">Users</a>
-        <a class="text-gray-700 mb-1">Datasets</a>
+        <a  href="{{ route('admin.users') }}" class="text-black mb-1 font-bold mr-4 border-b-2">Users</a>
+        <a  href="{{ route('admin.datasets') }}" class="text-gray-700 mb-1 mr-4">Datasets</a>
     </div>
 
     <div class="flex flex-col">
@@ -33,7 +33,7 @@
                     @foreach($users as $user)
                     <tr>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                            <div class="flex items-center">
+                            <a href="{{ route('admin.user', ['user' => $user]) }}" class="flex items-center">
                                 <div class="flex-shrink-0 h-10 w-10">
                                     <img class="h-10 w-10 rounded-full" src="{{ Gravatar::get($user->getEmail()) }}" alt="" />
                                 </div>
@@ -41,7 +41,7 @@
                                     <div class="text-sm leading-5 font-medium text-gray-900">{{ $user->getName() }}</div>
                                     <div class="text-sm leading-5 text-gray-500">{{ $user->getEmail() }}</div>
                                 </div>
-                            </div>
+                            </a>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                             <div class="text-sm leading-5 text-gray-800">{{ implode(', ', $user->datasets()->pluck('name')->toArray()) }}</div>
@@ -60,6 +60,14 @@
                     @endforeach
                     </tbody>
                 </table>
+
+                <form method="post">
+                    {{ csrf_field() }}
+                    <input type="email" name="email" placeholder="email">
+                    <input type="text" name="name" placeholder="name">
+                    <input type="checkbox" name="is_admin">admin
+                    <button type="submit">add user</button>
+                </form>
             </div>
 
     </div>

@@ -42,8 +42,10 @@ Route::middleware(['auth', 'admin',])->group(function() {
 Route::middleware(['auth', 'admin',])->group(function() {
     Route::get('/admin/users', [AdminController::class, 'getUsers'])->name('admin.users');
     Route::post('/admin/users', [AdminController::class, 'createUser']);
-    Route::get('/admin/datasets', [AdminController::class, 'getDatasets']);
+    Route::get('/admin/datasets', [AdminController::class, 'getDatasets'])->name('admin.datasets');
     Route::post('/admin/datasets', [AdminController::class, 'createDataset']);
+    Route::get('/admin/users/{user}', [AdminController::class, 'getUser'])->name('admin.user');
+    Route::post('/admin/users/{user}', [AdminController::class, 'updateUser']);
 });
 
 // API Routes
