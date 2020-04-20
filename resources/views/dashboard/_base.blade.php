@@ -12,7 +12,7 @@
     <nav class="bg-gray-800 p-4 text-gray-500 font-bold">
         <div class="container container-md mx-auto flex align-middle">
             <a href="{{ route('dashboard') }}" class="mr-8">
-                <img class="h-5 w-auto flex-initial" src="/brand.svg" alt="Suburbia">
+                <img class="h-5 w-auto flex-initial" src="/static/brand.svg" alt="Suburbia">
             </a>
 
             <a class="h-6 mr-5 flex-initial hover:text-white" href="{{ route('dashboard') }}">Dashboard</a>

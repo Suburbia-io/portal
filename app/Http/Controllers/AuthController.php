@@ -34,7 +34,7 @@ class AuthController extends BaseController
         }
 
         // Generate signed url for user and send it via Email
-        $user->notifyNow(new AuthLink());
+        $user->notify(new AuthLink());
 
         return redirect()->back()->with([
             'info' => 'A login link has been sent to your email address if it\'s known to us.',
