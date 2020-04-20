@@ -33,7 +33,7 @@
                     @foreach($users as $user)
                     <tr>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                            <a href="{{ route('admin.user', ['user' => $user]) }}" class="flex items-center">
+                            <div class="flex items-center">
                                 <div class="flex-shrink-0 h-10 w-10">
                                     <img class="h-10 w-10 rounded-full" src="{{ Gravatar::get($user->getEmail()) }}" alt="" />
                                 </div>
@@ -41,7 +41,7 @@
                                     <div class="text-sm leading-5 font-medium text-gray-900">{{ $user->getName() }}</div>
                                     <div class="text-sm leading-5 text-gray-500">{{ $user->getEmail() }}</div>
                                 </div>
-                            </a>
+                            </div>
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                             <div class="text-sm leading-5 text-gray-800">{{ implode(', ', $user->datasets()->pluck('name')->toArray()) }}</div>
@@ -54,7 +54,7 @@
                             @endif
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                            <a href="#" class="rounded-md border border-gray-300 px-4 py-2 bg-white leading-6 font-medium text-gray-700 shadow-sm">Edit</a>
+                            <a href="{{ route('admin.user', ['user' => $user]) }}" class="rounded-md border border-gray-300 px-4 py-2 bg-white leading-6 font-medium text-gray-700 shadow-sm">Edit</a>
                         </td>
                     </tr>
                     @endforeach
