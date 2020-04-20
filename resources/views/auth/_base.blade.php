@@ -10,7 +10,7 @@
 <div class="min-h-screen flex items-start justify-center bg-gray-50 pt-20 pb-12 px-4 sm:px-6 lg:px-8 hp">
     <div class="max-w-md w-full">
         <div>
-            <img class="mx-auto h-12 w-auto bg-gray-800 p-3 rounded-sm" src="/brand.svg" alt="Suburbia">
+            <img class="mx-auto h-12 w-auto bg-gray-800 p-3 rounded-sm" src="/static/brand.svg" alt="Suburbia">
             <h2 class="mt-6 text-center text-2xl leading-9 font-extrabold text-gray-900">
                 Sign in to your account
             </h2>
