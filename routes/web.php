@@ -50,3 +50,4 @@ Route::middleware(['auth', 'admin',])->group(function() {
 
 // API Routes
 Route::get('/api/user.datasets', [ApiController::class, 'userDatasetsApi']);
+Route::post('/api/user.access', [ApiController::class, 'userAccessLogApi']);
